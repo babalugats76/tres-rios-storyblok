@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply antialiased bg-gray-50 text-body font-body;
+}
+
+a {
+  @apply select-none;
+}
+
+.router-link-active {
+  @apply font-bold;
+}
+
+.router-link-exact-active {
+  @apply text-eggplant;
+}
+
+body {
+  @apply invisible;
+}
+
+body.initialized {
+  @apply visible !important;
+}

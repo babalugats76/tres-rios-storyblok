@@ -14,7 +14,8 @@
     "@nuxt/devtools": "latest",
     "@types/node": "^18.17.3",
     "local-ssl-proxy": "^2.0.5",
-    "nuxt": "^3.6.5"
+    "nuxt": "^3.6.5",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
