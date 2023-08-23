@@ -1,5 +1,4 @@
 <template>
-  <NuxtLink to="/hey?_storyblok=somewhere">Home</NuxtLink>
   <StoryblokComponent v-if="story" :blok="story?.content" />
     <p>
     Version {{ version }}<br />
