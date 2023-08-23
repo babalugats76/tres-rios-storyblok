@@ -1,7 +1,9 @@
-<!-- <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+<template>
+  <div>
+    <NuxtLayout>
+      <NuxtPage/>
+    </NuxtLayout>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -10,4 +12,4 @@
 
 <style scoped>
 
-</style> -->
+</style>
