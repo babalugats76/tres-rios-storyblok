@@ -4,13 +4,20 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev-https": "set NODE_TLS_REJECT_UNAUTHORIZED=0 && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem & nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^18.17.3",
+    "local-ssl-proxy": "^2.0.5",
     "nuxt": "^3.6.5"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@storyblok/nuxt": "^5.6.5"
   }
 }
