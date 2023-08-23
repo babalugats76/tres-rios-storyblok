@@ -17,11 +17,3 @@ a {
 .router-link-exact-active {
   @apply text-eggplant;
 }
-
-body {
-  @apply invisible;
-}
-
-body.initialized {
-  @apply visible !important;
-}
