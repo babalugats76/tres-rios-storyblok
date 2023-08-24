@@ -23,9 +23,7 @@ definePageMeta({
 const route = useRoute()
 
 const slug = computed(() =>
-  route?.params?.slug && route?.params?.slug.length > 0
-    ? route?.params?.slug + '/'
-    : 'home'
+  route?.params?._storyblok ? route?.params?._storyblok : `blog/${route?.params?.slug}`
 )
 
 const version = computed(() =>
@@ -47,7 +45,7 @@ useHead({
   meta: [{ name: 'description', content: description }]
 })
 
-blog.value = await useAsyncStoryblok(`blog/${slug.value}`, {
+blog.value = await useAsyncStoryblok(slug.value, {
   version: version.value,
   resolve_links: 'url'
 })
