@@ -44,8 +44,8 @@ const version = computed(() =>
   route?.query?._storyblok ? 'draft' : 'published'
 )
 const slug = computed(() =>
-  route?.params?._storyblok
-    ? route?.params?._storyblok
+  route?.query?._storyblok
+    ? route?.query?._storyblok
     : route?.params?.slug && route?.params?.slug.length > 0
       ? route?.params?.slug + '/'
       : 'home'

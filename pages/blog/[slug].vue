@@ -6,6 +6,20 @@
       :author="author.value?.content"
       :categories="categories.value"
     />
+    <div
+      v-if="preview"
+      class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono"
+    >
+      <ul>
+        <li>Title: {{ title }}</li>
+        <li>Description: {{ description }}</li>
+        <li>Version: {{ version }}</li>
+        <li>Slug: {{ slug }}</li>
+        <li>Params: {{ route?.params }}</li>
+        <li>Query: {{ route?.query }}</li>
+      </ul>
+      <pre>{{ story }}</pre>
+    </div>
   </div>
 </template>
 
@@ -23,8 +37,10 @@ definePageMeta({
 const route = useRoute()
 
 const slug = computed(() =>
-  route?.params?._storyblok ? route?.params?._storyblok : `blog/${route?.params?.slug}`
+  route?.query?._storyblok ? route?.query?._storyblok : route?.params?.slug && route?.params?.slug.length > 0 ? `blog/${route?.params?.slug}` : undefined
 )
+
+const preview = computed(() => !!route?.query._storyblok)
 
 const version = computed(() =>
   route?.query?._storyblok ? 'draft' : 'published'
