@@ -10,7 +10,7 @@ const pageClasses = reactive({
 });
 
 const blogDate = computed(() =>
-  new Date(props?.blok?.date).toLocaleDateString("default", {
+  new Date(props?.blok?.date || Date()).toLocaleDateString("default", {
     month: "long",
     day: "numeric",
     year: "numeric",
@@ -22,7 +22,7 @@ const blogDate = computed(() =>
   <div v-editable="blok" :class="pageClasses">
     <div class="md:max-w-2xl mx-auto mb-12 text-center">
       <div class="flex items-center justify-center">
-        <p class="inline-block text-green-500 font-medium">
+        <p v-if="author" class="inline-block text-green-500 font-medium">
           {{ author.display_name }}
         </p>
         <span class="mx-1 text-green-500">•</span>
@@ -46,7 +46,7 @@ const blogDate = computed(() =>
         </template>
       </div>
     </div>
-    <div class="mb-10 mx-auto max-w-max overflow-hidden rounded-lg">
+    <div v-if="blok?.image" class="mb-10 mx-auto max-w-max overflow-hidden rounded-lg">
       <img
         :src="blok.image.filename"
         :title="blok.image.title"

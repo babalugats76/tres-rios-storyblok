@@ -1,15 +1,8 @@
 <template>
   <div>
-    <StoryblokComponent
-      v-if="blog"
-      :blok="blog.value?.content"
-      :author="author.value?.content"
-      :categories="categories.value"
-    />
-    <div
-      v-if="preview"
-      class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono"
-    >
+    <StoryblokComponent v-if="blog" :blok="blog.value?.content" :author="author.value?.content"
+      :categories="categories.value" />
+    <div v-if="preview" class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono">
       <ul>
         <li>Title: {{ title }}</li>
         <li>Description: {{ description }}</li>
@@ -74,4 +67,5 @@ const { data } = await useStoryblokApi().get('cdn/stories/', {
 })
 
 categories.value = toRef(data.stories)
+
 </script>
