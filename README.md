@@ -1,63 +1,11 @@
-# Nuxt 3 Minimal Starter
+# Tres Ríos Spanish
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Todo
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- incorporate `useSeo`
+- error page
+- favicon
+- blog section
+- article section
+- mobile navbar style revamp
+- Create richtext component resolver for blog component (See `Test.vue` and [How to use Nuxt components inside Storyblok Rich-Text editor]https://www.storyblok.com/tp/nuxt-components-inside-rich-text)

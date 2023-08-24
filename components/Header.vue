@@ -1,15 +1,15 @@
-<script setup lang="ts">
+<script setup lang="js">
 defineProps({
   siteConfig: {
     type: Object,
-    required: true,
-  },
-});
-const route = useRoute();
-const isOpen = ref(false);
+    required: true
+  }
+})
+const route = useRoute()
+const isOpen = ref(false)
 const toggleMenu = () => {
-  isOpen.value = !isOpen.value;
-};
+  isOpen.value = !isOpen.value
+}
 </script>
 
 <template>
@@ -30,14 +30,17 @@ const toggleMenu = () => {
                   style="max-width: 128px"
                   :src="siteConfig?.header_logo?.filename"
                   :alt="siteConfig?.header_logo?.alt"
-                />
+                >
               </a>
             </div>
           </div>
         </div>
         <!-- nav items -->
         <div class="w-auto hidden lg:block">
-          <ul v-if="siteConfig?.header_nav" class="flex items-center mr-10">
+          <ul
+            v-if="siteConfig?.header_nav"
+            class="flex items-center mr-10"
+          >
             <li
               v-for="blok in siteConfig.header_nav.filter(
                 (x) => x.include_desktop,
@@ -87,7 +90,12 @@ const toggleMenu = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 @click="toggleMenu"
               >
-                <rect width="56" height="56" rx="28" fill="currentColor" />
+                <rect
+                  width="56"
+                  height="56"
+                  rx="28"
+                  fill="currentColor"
+                />
                 <path
                   d="M37 32H19M37 24H19"
                   stroke="white"
@@ -108,17 +116,23 @@ const toggleMenu = () => {
               <div class="w-full">
                 <div class="flex items-center justify-between -m-2">
                   <div class="w-auto p-2">
-                    <a class="inline-block" href="#">
+                    <a
+                      class="inline-block"
+                      href="#"
+                    >
                       <img
                         v-if="siteConfig?.header_logo"
                         style="max-width: 128px"
                         :src="siteConfig?.header_logo?.filename"
                         :alt="siteConfig?.header_logo?.alt"
-                      />
+                      >
                     </a>
                   </div>
                   <div class="w-auto p-2">
-                    <a class="navbar-burger" href="#">
+                    <a
+                      class="navbar-burger"
+                      href="#"
+                    >
                       <svg
                         width="24"
                         height="24"

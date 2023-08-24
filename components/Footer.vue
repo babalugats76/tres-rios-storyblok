@@ -1,12 +1,15 @@
-<script setup lang="ts">
-const props = defineProps({ siteConfig: Object });
-const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
+<script setup lang="js">
+const props = defineProps({ siteConfig: Object })
+const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
 </script>
 
 <template>
   <footer>
     <section class="relative pt-24 overflow-hidden">
-      <div v-if="siteConfig" class="relative z-10 container mx-auto px-4">
+      <div
+        v-if="siteConfig"
+        class="relative z-10 container mx-auto px-4"
+      >
         <div class="flex flex-wrap">
           <div class="w-full md:w-1/2 lg:w-5/12 p-6">
             <div class="flex flex-col justify-between h-full">
@@ -16,7 +19,7 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
                   class="w-full sm:max-w-xs mx-auto mb-6"
                   :src="siteConfig?.footer_logo?.filename"
                   :alt="siteConfig?.footer_logo?.alt"
-                />
+                >
               </div>
             </div>
           </div>
@@ -114,7 +117,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
       </div>
     </section>
     <section class="relative pt-24 overflow-hidden">
-      <div v-if="siteConfig" class="relative z-10 container mx-auto px-4">
+      <div
+        v-if="siteConfig"
+        class="relative z-10 container mx-auto px-4"
+      >
         <div
           v-if="siteConfig?.footer_about"
           class="w-full p-6 font-heading text-4xl md:text-6xl font-bold text-center"
@@ -128,8 +134,7 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
                 class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700"
                 :href="'mailto:' + siteConfig?.footer_email?.email"
                 :target="siteConfig?.footer_email?.target"
-                >{{ siteConfig?.footer_email?.url }}</a
-              >
+              >{{ siteConfig?.footer_email?.url }}</a>
             </div>
           </div>
           <div class="w-full md:w-1/3">
@@ -226,7 +231,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
                 </a>
               </div>
               <!-- twitter -->
-              <div v-if="siteConfig?.twitter" class="w-auto px-1 text-gray-700">
+              <div
+                v-if="siteConfig?.twitter"
+                class="w-auto px-1 text-gray-700"
+              >
                 <a
                   :href="siteConfig?.twitter.url"
                   :target="
@@ -250,7 +258,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
                 </a>
               </div>
               <!-- youtube -->
-              <div v-if="siteConfig?.youtube" class="w-auto px-1 text-gray-700">
+              <div
+                v-if="siteConfig?.youtube"
+                class="w-auto px-1 text-gray-700"
+              >
                 <a
                   :href="siteConfig?.youtube?.url"
                   :target="
@@ -279,9 +290,15 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
       </div>
     </section>
     <section class="relative pt-12 pb-24 overflow-hidden">
-      <div v-if="siteConfig" class="relative z-10 container mx-auto px-4">
+      <div
+        v-if="siteConfig"
+        class="relative z-10 container mx-auto px-4"
+      >
         <div class="w-full p6 text-center">
-          <p v-if="siteConfig?.footer_copyright" class="text-gray-600 text-sm">
+          <p
+            v-if="siteConfig?.footer_copyright"
+            class="text-gray-600 text-sm"
+          >
             {{ siteConfig?.footer_copyright }}
           </p>
         </div>
