@@ -18,7 +18,7 @@
         <li>Params: {{ route?.params }}</li>
         <li>Query: {{ route?.query }}</li>
       </ul>
-      <pre>{{ story }}</pre>
+      <pre>{{ blog }}</pre>
     </div>
   </div>
 </template>
