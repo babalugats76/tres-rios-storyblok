@@ -10,6 +10,9 @@ const isOpen = ref(false)
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
 }
+
+const formatUrl = (url) => (!url || url === "/") ? "/" : "/" + url
+
 </script>
 
 <template>
@@ -49,7 +52,7 @@ const toggleMenu = () => {
               class="font-heading mr-9 text-gray-900 hover:text-gray-700 text-lg"
             >
               <NuxtLink
-                :to="blok?.link?.story?.url"
+                :to="blok?.link?.story?.url.startsWith('/') ? blok?.link?.story?.url: '/' + blok?.link?.story?.url"
                 class="font-heading font-medium text-base text-gray-900 hover:text-gray-700"
               >
                 {{ blok?.label }}
@@ -165,7 +168,7 @@ const toggleMenu = () => {
                     class="mb-12"
                   >
                     <NuxtLink
-                      :to="blok?.link?.story?.url"
+                      :to="blok?.link?.story?.url.startsWith('/') ? blok?.link?.story?.url: '/' + blok?.link?.story?.url"
                       class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700"
                       @click="toggleMenu"
                     >
