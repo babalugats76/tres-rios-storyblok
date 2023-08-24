@@ -1,7 +1,7 @@
 <template>
   <div>
     <StoryblokComponent v-if="story" :blok="story?.value?.content" />
-    <div class="container p-4 text-sm">
+    <div v-if="preview" class="container p-4 text-xs bg-blue-50 border-solid font-mono">
       <ul>
         <li>Title: {{ title }}</li>
         <li>Description: {{ description }}</li>
@@ -10,7 +10,7 @@
         <li>Params: {{ route?.params }}</li>
         <li>Query: {{ route?.query }}</li>
       </ul>
-      <pre class="text-xs">{{ story }}</pre>
+      <pre>{{ story }}</pre>
     </div>
   </div>
 </template>
@@ -21,7 +21,6 @@ const toPascalCase = (str) =>
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     .map((x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
     .join("");
-
 
 definePageMeta({
   key: (route) => String(route?.query._storyblok || route.fullPath),
@@ -42,9 +41,11 @@ const slug = computed(() =>
   route?.params?._storyblok
     ? route?.params?._storyblok
     : route?.params?.slug && route?.params?.slug.length > 0
-    ? route?.params?.slug + "/"
-    : "home",
+      ? route?.params?.slug + "/"
+      : "home",
 );
+
+const preview = computed(() => !!route?.query._storyblok);
 
 const title = computed(() =>
   slug.value ? "Tres Ríos - " + toPascalCase(slug.value) : "Tres Ríos",
