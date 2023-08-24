@@ -13,7 +13,7 @@ const pageClasses = reactive({
 
 <template>
   <div v-editable="blok" :class="pageClasses">
-    <div>Page Component</div>
-    <StoryblokComponent v-for="b in blok?.body" :key="b._uid" :blok="b" /> -->
+    <div></div>
+    <StoryblokComponent v-for="b in blok?.body" :key="b._uid" :blok="b" />
   </div>
 </template>

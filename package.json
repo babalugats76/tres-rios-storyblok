@@ -6,19 +6,21 @@
     "dev": "nuxt dev",
     "dev-https": "set NODE_TLS_REJECT_UNAUTHORIZED=0 && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem & nuxt dev",
     "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue,.ts --fix .",
+    "format": "prettier --write --list-different './plugins/**' './storyblok/**' './components/**' './composables/**' './pages/**' './server/**' './layouts/**' app.vue",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.3",
-    "local-ssl-proxy": "^2.0.5",
-    "nuxt": "^3.6.5",
-    "typescript": "^5.1.6"
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "eslint": "^8.47.0",
+    "nuxt": "^3.6.5"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@storyblok/nuxt": "^5.6.5"
+    "@storyblok/nuxt": "^5.6.5",
+    "local-ssl-proxy": "^2.0.5"
   }
 }
