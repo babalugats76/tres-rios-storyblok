@@ -1,26 +1,10 @@
 module.exports = {
+  root: true,
   env: {
-    browser: true,
-    es2021: true,
     node: true,
+    browser: true,
   },
-  extends: ["plugin:vue/vue3-essential"],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: [".eslintrc.{js,cjs}"],
-      parserOptions: {
-        sourceType: "script",
-      },
-    },
-  ],
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-  },
-  plugins: ["vue"],
+  extends: ["@nuxtjs/eslint-config-typescript", "plugin:prettier/recommended"],
   rules: {
     "vue/component-name-in-template-casing": ["error", "PascalCase"],
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
@@ -29,6 +13,13 @@ module.exports = {
     "vue/multi-word-component-names": "off",
     "vue/require-default-prop": "off",
     "vue/no-v-html": "off",
+  },
+  globals: {
+    $nuxt: true,
+  },
+  parser: "vue-eslint-parser",
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
   },
   ignorePatterns: ["**/*.json"],
 };

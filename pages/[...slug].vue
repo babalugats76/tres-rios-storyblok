@@ -60,6 +60,7 @@ useHead({
   meta: [{ name: "description", content: description }],
 });
 
+// @ts-ignore
 story.value = await useAsyncStoryblok(slug.value, {
   version: version.value,
   resolve_links: "url",
