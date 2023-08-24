@@ -1,7 +1,7 @@
 <template>
   <div>
     <StoryblokComponent v-if="story" :blok="story?.value?.content" />
-    <div v-if="preview" class="container p-4 text-xs bg-blue-50 border-solid font-mono">
+    <div v-if="preview" class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono">
       <ul>
         <li>Title: {{ title }}</li>
         <li>Description: {{ description }}</li>
