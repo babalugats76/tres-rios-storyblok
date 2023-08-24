@@ -22,8 +22,9 @@ const toPascalCase = (str) =>
     .map((x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
     .join("");
 
+
 definePageMeta({
-  key: (route) => route?.query._storyblok || route.fullPath,
+  key: (route) => String(route?.query._storyblok || route.fullPath),
   layout: "default",
   validate: (route) =>
     !!route?.query._storyblok ||
