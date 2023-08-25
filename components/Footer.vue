@@ -1,15 +1,12 @@
 <script setup lang="js">
-const props = defineProps({ siteConfig: Object })
-const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
+  const props = defineProps({ siteConfig: Object });
+  const about = computed(() => renderRichText(props?.siteConfig?.footer_about));
 </script>
 
 <template>
   <footer>
     <section class="relative pt-24 overflow-hidden">
-      <div
-        v-if="siteConfig"
-        class="relative z-10 container mx-auto px-4"
-      >
+      <div v-if="siteConfig" class="relative z-10 container mx-auto px-4">
         <div class="flex flex-wrap">
           <div class="w-full md:w-1/2 lg:w-5/12 p-6">
             <div class="flex flex-col justify-between h-full">
@@ -19,14 +16,11 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                   class="w-full sm:max-w-xs mx-auto mb-6"
                   :src="siteConfig?.footer_logo?.filename"
                   :alt="siteConfig?.footer_logo?.alt"
-                >
+                />
               </div>
             </div>
           </div>
-          <div
-            v-if="siteConfig?.footer_nav_1_headline"
-            class="w-full md:w-1/2 lg:w-2/12 p-6"
-          >
+          <div v-if="siteConfig?.footer_nav_1_headline" class="w-full md:w-1/2 lg:w-2/12 p-6">
             <div class="h-full">
               <h3
                 class="mb-9 font-heading font-semibold text-xs text-gray-500 uppercase tracking-px"
@@ -34,17 +28,9 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 {{ siteConfig?.footer_nav_1_headline }}
               </h3>
               <ul>
-                <li
-                  v-for="blok in siteConfig?.footer_nav_1"
-                  :key="blok._uid"
-                  class="mb-4"
-                >
+                <li v-for="blok in siteConfig?.footer_nav_1" :key="blok._uid" class="mb-4">
                   <NuxtLink
-                    :to="
-                      blok?.link?.story?.slug === 'home'
-                        ? '/'
-                        : '/' + blok?.link?.story?.slug
-                    "
+                    :to="blok?.link?.story?.slug === 'home' ? '/' : '/' + blok?.link?.story?.slug"
                     class="font-heading font-medium text-base text-gray-900 hover:text-gray-700"
                   >
                     {{ blok?.label }}
@@ -53,10 +39,7 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
               </ul>
             </div>
           </div>
-          <div
-            v-if="siteConfig?.footer_nav_2_headline"
-            class="w-full md:w-1/2 lg:w-2/12 p-6"
-          >
+          <div v-if="siteConfig?.footer_nav_2_headline" class="w-full md:w-1/2 lg:w-2/12 p-6">
             <div class="h-full">
               <h3
                 class="mb-9 font-heading font-semibold text-xs text-gray-500 uppercase tracking-px"
@@ -64,17 +47,9 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 {{ siteConfig?.footer_nav_2_headline }}
               </h3>
               <ul>
-                <li
-                  v-for="blok in siteConfig?.footer_nav_2"
-                  :key="blok._uid"
-                  class="mb-4"
-                >
+                <li v-for="blok in siteConfig?.footer_nav_2" :key="blok._uid" class="mb-4">
                   <NuxtLink
-                    :to="
-                      blok?.link?.story?.slug === 'home'
-                        ? '/'
-                        : '/' + blok?.link?.story?.slug
-                    "
+                    :to="blok?.link?.story?.slug === 'home' ? '/' : '/' + blok?.link?.story?.slug"
                     class="font-heading font-medium text-base text-gray-900 hover:text-gray-700"
                   >
                     {{ blok?.label }}
@@ -83,10 +58,7 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
               </ul>
             </div>
           </div>
-          <div
-            v-if="siteConfig?.footer_nav_3_headline"
-            class="w-full md:w-1/2 lg:w-2/12 p-6"
-          >
+          <div v-if="siteConfig?.footer_nav_3_headline" class="w-full md:w-1/2 lg:w-2/12 p-6">
             <div class="h-full">
               <h3
                 class="mb-9 font-heading font-semibold text-xs text-gray-500 uppercase tracking-px"
@@ -94,17 +66,9 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 {{ siteConfig?.footer_nav_3_headline }}
               </h3>
               <ul>
-                <li
-                  v-for="blok in siteConfig?.footer_nav_3"
-                  :key="blok._uid"
-                  class="mb-4"
-                >
+                <li v-for="blok in siteConfig?.footer_nav_3" :key="blok._uid" class="mb-4">
                   <NuxtLink
-                    :to="
-                      blok?.link?.story?.slug === 'home'
-                        ? '/'
-                        : '/' + blok?.link?.story?.slug
-                    "
+                    :to="blok?.link?.story?.slug === 'home' ? '/' : '/' + blok?.link?.story?.slug"
                     class="font-heading font-medium text-base text-gray-900 hover:text-gray-700"
                   >
                     {{ blok?.label }}
@@ -117,10 +81,7 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
       </div>
     </section>
     <section class="relative pt-24 overflow-hidden">
-      <div
-        v-if="siteConfig"
-        class="relative z-10 container mx-auto px-4"
-      >
+      <div v-if="siteConfig" class="relative z-10 container mx-auto px-4">
         <div
           v-if="siteConfig?.footer_about"
           class="w-full p-6 font-heading text-4xl md:text-6xl font-bold text-center"
@@ -134,7 +95,8 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700"
                 :href="'mailto:' + siteConfig?.footer_email?.email"
                 :target="siteConfig?.footer_email?.target"
-              >{{ siteConfig?.footer_email?.url }}</a>
+                >{{ siteConfig?.footer_email?.url }}</a
+              >
             </div>
           </div>
           <div class="w-full md:w-1/3">
@@ -150,17 +112,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
           <div class="w-full md:w-1/3">
             <div class="p-5 flex flex-wrap justify-center">
               <!-- facebook -->
-              <div
-                v-if="siteConfig?.facebook"
-                class="w-auto px-1 text-eggplant"
-              >
+              <div v-if="siteConfig?.facebook" class="w-auto px-1 text-eggplant">
                 <a
                   :href="siteConfig?.facebook.url"
-                  :target="
-                    !!siteConfig?.facebook?.target
-                      ? siteConfig?.facebook?.target
-                      : null
-                  "
+                  :target="!!siteConfig?.facebook?.target ? siteConfig?.facebook?.target : null"
                 >
                   <svg
                     class="fill-current"
@@ -177,17 +132,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 </a>
               </div>
               <!-- instagram -->
-              <div
-                v-if="siteConfig?.instagram"
-                class="w-auto px-1 text-gray-700"
-              >
+              <div v-if="siteConfig?.instagram" class="w-auto px-1 text-gray-700">
                 <a
                   :href="siteConfig?.instagram?.url"
-                  :target="
-                    !!siteConfig?.instagram?.target
-                      ? siteConfig?.instagram?.target
-                      : null
-                  "
+                  :target="!!siteConfig?.instagram?.target ? siteConfig?.instagram?.target : null"
                 >
                   <svg
                     class="fill-current"
@@ -204,17 +152,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 </a>
               </div>
               <!-- linkedin -->
-              <div
-                v-if="siteConfig?.linkedin"
-                class="w-auto px-1 text-gray-700"
-              >
+              <div v-if="siteConfig?.linkedin" class="w-auto px-1 text-gray-700">
                 <a
                   :href="siteConfig?.linkedin?.url"
-                  :target="
-                    !!siteConfig?.linkedin?.target
-                      ? siteConfig?.linkedin?.target
-                      : null
-                  "
+                  :target="!!siteConfig?.linkedin?.target ? siteConfig?.linkedin?.target : null"
                 >
                   <svg
                     class="fill-current"
@@ -231,17 +172,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 </a>
               </div>
               <!-- twitter -->
-              <div
-                v-if="siteConfig?.twitter"
-                class="w-auto px-1 text-gray-700"
-              >
+              <div v-if="siteConfig?.twitter" class="w-auto px-1 text-gray-700">
                 <a
                   :href="siteConfig?.twitter.url"
-                  :target="
-                    !!siteConfig?.twitter?.target
-                      ? siteConfig?.twitter?.target
-                      : null
-                  "
+                  :target="!!siteConfig?.twitter?.target ? siteConfig?.twitter?.target : null"
                 >
                   <svg
                     class="fill-current"
@@ -258,17 +192,10 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
                 </a>
               </div>
               <!-- youtube -->
-              <div
-                v-if="siteConfig?.youtube"
-                class="w-auto px-1 text-gray-700"
-              >
+              <div v-if="siteConfig?.youtube" class="w-auto px-1 text-gray-700">
                 <a
                   :href="siteConfig?.youtube?.url"
-                  :target="
-                    !!siteConfig?.youtube?.target
-                      ? siteConfig?.youtube?.target
-                      : null
-                  "
+                  :target="!!siteConfig?.youtube?.target ? siteConfig?.youtube?.target : null"
                 >
                   <svg
                     class="fill-current"
@@ -290,15 +217,9 @@ const about = computed(() => renderRichText(props?.siteConfig?.footer_about))
       </div>
     </section>
     <section class="relative pt-12 pb-24 overflow-hidden">
-      <div
-        v-if="siteConfig"
-        class="relative z-10 container mx-auto px-4"
-      >
+      <div v-if="siteConfig" class="relative z-10 container mx-auto px-4">
         <div class="w-full p6 text-center">
-          <p
-            v-if="siteConfig?.footer_copyright"
-            class="text-gray-600 text-sm"
-          >
+          <p v-if="siteConfig?.footer_copyright" class="text-gray-600 text-sm">
             {{ siteConfig?.footer_copyright }}
           </p>
         </div>

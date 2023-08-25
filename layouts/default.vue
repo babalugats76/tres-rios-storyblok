@@ -1,8 +1,8 @@
 <script setup lang="js">
-const story = await useAsyncStoryblok('site-config', {
-  version: 'published',
-  resolve_links: 'url'
-})
+  const story = await useAsyncStoryblok('site-config', {
+    version: 'published',
+    resolve_links: 'url',
+  });
 </script>
 
 <template>
@@ -16,19 +16,19 @@ const story = await useAsyncStoryblok('site-config', {
 </template>
 
 <style>
-body {
-  @apply antialiased bg-gray-50 text-body font-body;
-}
+  body {
+    @apply antialiased bg-gray-50 text-body font-body;
+  }
 
-a {
-  @apply select-none;
-}
+  a {
+    @apply select-none;
+  }
 
-.router-link-active {
-  @apply font-bold;
-}
+  .router-link-active {
+    @apply font-bold;
+  }
 
-.router-link-exact-active {
-  @apply text-eggplant-500;
-}
+  .router-link-exact-active {
+    @apply text-eggplant-500;
+  }
 </style>

@@ -1,6 +1,10 @@
 <template>
-  <StoryblokComponent v-if="blog" :blok="blog.value?.content" :author="author.value?.content"
-    :categories="categories.value" />
+  <StoryblokComponent
+    v-if="blog"
+    :blok="blog.value?.content"
+    :author="author.value?.content"
+    :categories="categories.value"
+  />
   <div v-if="preview" class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono">
     <ul>
       <li>Title: {{ title }}</li>
@@ -11,61 +15,61 @@
       <li>Query: {{ route?.query }}</li>
     </ul>
     <pre>{{ blog }}</pre>
-
   </div>
 </template>
 
 <script setup lang="js">
+  const toPascalCase = (str) =>
+    str
+      .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+      .map((x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
+      .join('');
 
-const toPascalCase = str =>
-  str
-    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    .map(x => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
-    .join('')
+  definePageMeta({
+    layout: 'default',
+  });
 
-definePageMeta({
-  layout: 'default'
-})
+  const route = useRoute();
 
-const route = useRoute()
+  const slug = computed(() =>
+    route?.query?._storyblok
+      ? route?.query?._storyblok
+      : route?.params?.slug && route?.params?.slug.length > 0
+      ? `blog/${route?.params?.slug}`
+      : undefined
+  );
 
-const slug = computed(() =>
-  route?.query?._storyblok ? route?.query?._storyblok : route?.params?.slug && route?.params?.slug.length > 0 ? `blog/${route?.params?.slug}` : undefined
-)
+  const preview = computed(() => !!route?.query._storyblok);
 
-const preview = computed(() => !!route?.query._storyblok)
+  const version = computed(() => (route?.query?._storyblok ? 'draft' : 'published'));
 
-const version = computed(() =>
-  route?.query?._storyblok ? 'draft' : 'published'
-)
+  const blog = reactive({});
+  const author = reactive({});
+  const categories = reactive({});
 
-const blog = reactive({})
-const author = reactive({})
-const categories = reactive({})
+  const title = computed(() => (blog.value?.name ? 'Tres Ríos - ' + blog.value.name : 'Tres Ríos'));
 
-const title = computed(() =>
-  blog.value?.name ? 'Tres Ríos - ' + blog.value.name : 'Tres Ríos'
-)
+  const description = computed(() => blog.value?.content?.teaser);
 
-const description = computed(() => blog.value?.content?.teaser)
+  useHead({
+    title,
+    meta: [{ name: 'description', content: description }],
+  });
 
-useHead({
-  title,
-  meta: [{ name: 'description', content: description }]
-})
+  blog.value = await useAsyncStoryblok(slug.value, {
+    version: version.value,
+    resolve_links: 'url',
+  });
 
-blog.value = await useAsyncStoryblok(slug.value, {
-  version: version.value,
-  resolve_links: 'url'
-})
+  author.value = await useAsyncStoryblok(unref(blog.value)?.content?.author, {
+    version: version.value,
+    find_by: 'uuid',
+  });
 
-author.value = await useAsyncStoryblok(unref(blog.value)?.content?.author, { version: version.value, find_by: 'uuid' })
+  const { data } = await useStoryblokApi().get('cdn/stories/', {
+    version: version.value,
+    by_uuids: unref(blog.value)?.content?.categories.join(','),
+  });
 
-const { data } = await useStoryblokApi().get('cdn/stories/', {
-  version: version.value,
-  by_uuids: unref(blog.value)?.content?.categories.join(',')
-})
-
-categories.value = toRef(data.stories)
-
+  categories.value = toRef(data.stories);
 </script>

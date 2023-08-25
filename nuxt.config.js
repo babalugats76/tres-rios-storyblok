@@ -1,20 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
-    rootId: "tres-rios",
-    rootTag: "body",
+    rootId: 'tres-rios',
+    rootTag: 'body',
     head: {
-      title: "Tres Ríos",
+      title: 'Tres Ríos',
       link: [
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@300;400;500;600;700;800&display=swap",
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@300;400;500;600;700;800&display=swap',
         },
       ],
       meta: [
         {
-          name: "description",
-          content: "Concierge Learning is Here",
+          name: 'description',
+          content: 'Concierge Learning is Here',
         },
       ],
     },
@@ -22,15 +22,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     [
-      "@storyblok/nuxt",
+      '@storyblok/nuxt',
       {
         accessToken: process.env.STORYBLOK_SECRET,
         apiOptions: {
-          region: "us",
+          region: 'us',
         },
       },
     ],
-    "@nuxtjs/tailwindcss",
+    '@nuxtjs/tailwindcss',
   ],
   // pageTransition: { name: "page", mode: "out-in" },
   typescript: {

@@ -1,20 +1,17 @@
 <script setup lang="js">
-defineProps({
-  blok: Object
-})
+  defineProps({
+    blok: Object,
+  });
 </script>
 <template>
-  <div
-    v-editable="blok"
-    class="hero relative z-20 overflow-hidden pt-12 pb-28"
-  >
+  <div v-editable="blok" class="hero relative z-20 overflow-hidden pt-12 pb-28">
     <div class="flex flex-wrap xl:items-center -m-8">
       <div class="w-full md:w-1/2 xl:w-auto p-8 xl:p-12 relative">
         <img
           class="w-full md:w-auto transform hover:scale-105 transition ease-in-out duration-1000 rounded-lg"
           :src="blok?.image?.filename"
           :alt="blok?.image?.alt"
-        >
+        />
         <div class="p-8 absolute bottom-0 left-0 w-full">
           <div
             class="invisible lg:visible p-11 m-8 bg-black bg-opacity-50 backdrop-blur-xl rounded-lg"
