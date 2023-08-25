@@ -24,7 +24,7 @@ const blogDate = computed(() =>
   <div v-editable="blok" :class="pageClasses">
     <div class="md:max-w-2xl mx-auto">
       <template v-for="c in categories" :key="c.id">
-        <span class="inline-block py-1 px-3 mb-4 mr-2 font-semibold text-orange-900 bg-orange-50 rounded-full">
+        <span class="inline-block py-1 px-3 mb-4 mr-2 font-semibold rounded-full bg-eggplant-50 text-eggplant-500">
           {{ c.name }}
         </span>
       </template>
@@ -34,12 +34,12 @@ const blogDate = computed(() =>
           {{ author.display_name }}&nbsp;&nbsp;&middot;&nbsp;&nbsp;{{ blogDate }}
         </p>
       </div>
-      <div class="mb-10" v-if="blok.teaser">
-        <blockquote class="font-sans font-normal text-lg text-gray-600 px-6 py-8 border-l-8">{{ blok.teaser }}
-        </blockquote>
-      </div>
       <div v-if="blok?.image" class="h-64 mb-10">
         <img :src="blok.image.filename" :title="blok.image.title" class="w-full h-full object-cover rounded-lg" alt="" />
+      </div>
+      <div class="mb-10" v-if="blok.teaser">
+        <blockquote class="font-serif italic text-xl leading-snug text-gray-600 md:px-12 py-2">{{ blok.teaser }}
+        </blockquote>
       </div>
       <div class="blog__text" v-html="richText"></div>
     </div>

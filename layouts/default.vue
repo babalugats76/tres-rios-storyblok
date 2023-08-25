@@ -29,6 +29,6 @@ a {
 }
 
 .router-link-exact-active {
-  @apply text-eggplant;
+  @apply text-eggplant-500;
 }
 </style>

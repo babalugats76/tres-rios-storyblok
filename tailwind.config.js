@@ -5,9 +5,20 @@ module.exports = {
     'font-serif',
     'font-sans',
     'font-mono',
-    'font-body',
+    'font-body'
   ],
   theme: {
+    extend: {
+      colors: {
+        eggplant: {
+          50:  "#D1C7CF",
+          100: "#7A6677",
+          500: "#483C46",
+        },
+        "midnight-green": "#095F7A",
+        "tea-green": "#D2E59E",
+      }
+    },
     screens: {
       xs: "480px",
       sm: "640px",
