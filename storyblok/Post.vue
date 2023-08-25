@@ -25,9 +25,15 @@
 </script>
 
 <template>
-  <div v-editable="blok" :class="pageClasses">
+  <div
+    v-editable="blok"
+    :class="pageClasses"
+  >
     <div class="md:max-w-2xl mx-auto">
-      <template v-for="c in categories" :key="c.id">
+      <template
+        v-for="c in categories"
+        :key="c.id"
+      >
         <span
           :style="{
             backgroundColor: c?.content?.background?.color,
@@ -38,13 +44,23 @@
           #{{ c.name.toLowerCase() }}
         </span>
       </template>
-      <div class="blog__headline mb-10" v-html="richHeadline"></div>
+      <div
+        class="blog__headline mb-10"
+        v-html="richHeadline"
+      ></div>
       <div v-if="author">
-        <p class="text-md font-sans font-normal tracking-tight text-gray-500 mb-8">
-          {{ author.display_name }}&nbsp;&nbsp;&middot;&nbsp;&nbsp;{{ blogDate }}
+        <p
+          class="text-md font-sans font-normal tracking-tight text-gray-500 mb-8"
+        >
+          {{ author.display_name }}&nbsp;&nbsp;&middot;&nbsp;&nbsp;{{
+            blogDate
+          }}
         </p>
       </div>
-      <div v-if="blok?.image" class="h-64 mb-10">
+      <div
+        v-if="blok?.image"
+        class="h-64 mb-10"
+      >
         <img
           :src="blok.image.filename"
           :title="blok.image.title"
@@ -52,12 +68,20 @@
           alt=""
         />
       </div>
-      <div v-if="blok.teaser" class="mb-10">
-        <blockquote class="font-serif italic text-xl leading-snug text-gray-600 md:px-12 py-2">
+      <div
+        v-if="blok.teaser"
+        class="mb-10"
+      >
+        <blockquote
+          class="font-serif italic text-xl leading-snug text-gray-600 md:px-12 py-2"
+        >
           {{ blok.teaser }}
         </blockquote>
       </div>
-      <div class="blog__text" v-html="richText"></div>
+      <div
+        class="blog__text"
+        v-html="richText"
+      ></div>
     </div>
   </div>
 </template>

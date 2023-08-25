@@ -12,8 +12,15 @@
 </script>
 
 <template>
-  <div v-editable="blok" :class="pageClasses">
+  <div
+    v-editable="blok"
+    :class="pageClasses"
+  >
     <div />
-    <StoryblokComponent v-for="b in blok?.body" :key="b._uid" :blok="b" />
+    <StoryblokComponent
+      v-for="b in blok?.body"
+      :key="b._uid"
+      :blok="b"
+    />
   </div>
 </template>

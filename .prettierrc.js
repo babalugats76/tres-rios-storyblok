@@ -4,5 +4,7 @@ module.exports = {
   singleQuote: true,
   semi: true,
   vueIndentScriptAndStyle: true,
-  printWidth: 100,
+  printWidth: 80,
+  singleAttributePerLine: true,
+  proseWrap: "preserve"
 };

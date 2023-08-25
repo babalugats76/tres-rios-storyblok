@@ -6,7 +6,13 @@ module.exports = {
     '*.vue',
     'nuxt.config.js',
   ],
-  safelist: ['font-heading', 'font-serif', 'font-sans', 'font-mono', 'font-body'],
+  safelist: [
+    'font-heading',
+    'font-serif',
+    'font-sans',
+    'font-mono',
+    'font-body',
+  ],
   theme: {
     extend: {
       colors: {
@@ -207,22 +213,30 @@ module.exports = {
     backgroundImage: {
       none: 'none',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
-      'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
+      'gradient-to-tr':
+        'linear-gradient(to top right, var(--tw-gradient-stops))',
       'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
-      'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+      'gradient-to-br':
+        'linear-gradient(to bottom right, var(--tw-gradient-stops))',
       'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
-      'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
+      'gradient-to-bl':
+        'linear-gradient(to bottom left, var(--tw-gradient-stops))',
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
-      'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
-      'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
+      'gradient-to-tl':
+        'linear-gradient(to top left, var(--tw-gradient-stops))',
+      'gradient-to-tl':
+        'linear-gradient(to top left, var(--tw-gradient-stops))',
       'gradient-blue': 'linear-gradient(135deg, #5ECDEF 0%, #ED1378 100%)',
       'gradient-red':
         'linear-gradient(109deg, rgba(249,234,237,1) 0%, rgba(236,75,145,1) 60%, rgba(227,101,164,1) 100%)',
       'gradient-red-light': 'linear-gradient(180deg, #F9D1AA 0%, #EF1460 100%)',
-      'gradient-orange-light': 'linear-gradient(180deg, #F9D1AA 0%, #EF1460 200%)',
+      'gradient-orange-light':
+        'linear-gradient(180deg, #F9D1AA 0%, #EF1460 200%)',
       'gradient-orange': 'linear-gradient(98.24deg, #FC8B13 0%, #FA35C1 100%)',
-      'gradient-green': 'linear-gradient(104deg, rgba(223,244,244,1) 0%, rgba(60,231,181,1) 40%)',
-      'gradient-green-dark': 'linear-gradient(98.24deg, #06E992 0%, #0289EB 100%)',
+      'gradient-green':
+        'linear-gradient(104deg, rgba(223,244,244,1) 0%, rgba(60,231,181,1) 40%)',
+      'gradient-green-dark':
+        'linear-gradient(98.24deg, #06E992 0%, #0289EB 100%)',
       'gradient-pink': 'linear-gradient(98.24deg, #C9275A 0%, #DD15E8 100%)',
       'gradient-aqua': 'linear-gradient(98.24deg, #55F7DC 0%, #5BC9F9 100%)',
       'gradient-radial-gray':
@@ -337,7 +351,10 @@ module.exports = {
     divideWidth: (theme) => theme('borderWidth'),
     dropShadow: {
       sm: '0 1px 1px rgba(0,0,0,0.05)',
-      DEFAULT: ['0 1px 2px rgba(0, 0, 0, 0.1)', '0 1px 1px rgba(0, 0, 0, 0.06)'],
+      DEFAULT: [
+        '0 1px 2px rgba(0, 0, 0, 0.1)',
+        '0 1px 1px rgba(0, 0, 0, 0.06)',
+      ],
       md: ['0 4px 3px rgba(0, 0, 0, 0.07)', '0 2px 2px rgba(0, 0, 0, 0.06)'],
       lg: ['0 10px 8px rgba(0, 0, 0, 0.04)', '0 4px 3px rgba(0, 0, 0, 0.1)'],
       xl: ['0 20px 13px rgba(0, 0, 0, 0.03)', '0 8px 5px rgba(0, 0, 0, 0.08)'],
@@ -387,7 +404,8 @@ module.exports = {
       heading:
         '"Sora", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       sans: '"Sora", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-      serif: '"Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      serif:
+        '"Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
       mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     },
     fontSize: {
@@ -948,17 +966,45 @@ module.exports = {
     backgroundAttachment: ['responsive'],
     backgroundBlendMode: ['responsive'],
     backgroundClip: ['responsive'],
-    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundColor: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     backgroundImage: ['responsive', 'group-hover', 'hover'],
-    backgroundOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundOpacity: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],
     backgroundOrigin: ['responsive'],
     blur: ['responsive'],
     borderCollapse: ['responsive'],
-    borderColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
-    borderOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    borderColor: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
+    borderOpacity: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     borderRadius: ['responsive'],
     borderStyle: ['responsive'],
     borderWidth: ['responsive'],
@@ -1053,9 +1099,29 @@ module.exports = {
     strokeWidth: ['responsive'],
     tableLayout: ['responsive'],
     textAlign: ['responsive'],
-    textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
-    textDecoration: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    textOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    textColor: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
+    textDecoration: [
+      'responsive',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
+    textOpacity: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     textOverflow: ['responsive'],
     textTransform: ['responsive'],
     transform: ['responsive', 'group-hover', 'hover'],

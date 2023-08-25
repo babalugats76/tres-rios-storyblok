@@ -16,7 +16,10 @@
   <header>
     <!-- <div>{{ siteConfig }}</div> -->
     <section class="overflow-hidden">
-      <div v-if="siteConfig" :class="'flex items-center justify-between px-8 py-5'">
+      <div
+        v-if="siteConfig"
+        :class="'flex items-center justify-between px-8 py-5'"
+      >
         <!-- logo -->
         <div class="w-auto">
           <div class="flex flex-wrap items-center">
@@ -34,9 +37,14 @@
         </div>
         <!-- nav items -->
         <div class="w-auto hidden lg:block">
-          <ul v-if="siteConfig?.header_nav" class="flex items-center mr-10">
+          <ul
+            v-if="siteConfig?.header_nav"
+            class="flex items-center mr-10"
+          >
             <li
-              v-for="blok in siteConfig.header_nav.filter((x) => x.include_desktop)"
+              v-for="blok in siteConfig.header_nav.filter(
+                (x) => x.include_desktop
+              )"
               :key="blok._uid"
               class="font-heading mr-9 text-gray-900 hover:text-gray-700 text-lg"
             >
@@ -88,7 +96,12 @@
                 xmlns="http://www.w3.org/2000/svg"
                 @click="toggleMenu"
               >
-                <rect width="56" height="56" rx="28" fill="currentColor" />
+                <rect
+                  width="56"
+                  height="56"
+                  rx="28"
+                  fill="currentColor"
+                />
                 <path
                   d="M37 32H19M37 24H19"
                   stroke="white"
@@ -109,7 +122,10 @@
               <div class="w-full">
                 <div class="flex items-center justify-between -m-2">
                   <div class="w-auto p-2">
-                    <a class="inline-block" href="#">
+                    <a
+                      class="inline-block"
+                      href="#"
+                    >
                       <img
                         v-if="siteConfig?.header_logo"
                         style="max-width: 128px"
@@ -119,7 +135,10 @@
                     </a>
                   </div>
                   <div class="w-auto p-2">
-                    <a class="navbar-burger" href="#">
+                    <a
+                      class="navbar-burger"
+                      href="#"
+                    >
                       <svg
                         width="24"
                         height="24"
@@ -140,10 +159,14 @@
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col items-center text-center justify-center py-8 w-full">
+              <div
+                class="flex flex-col items-center text-center justify-center py-8 w-full"
+              >
                 <ul v-if="siteConfig?.header_nav">
                   <li
-                    v-for="blok in siteConfig?.header_nav?.filter((x) => x.include_mobile)"
+                    v-for="blok in siteConfig?.header_nav?.filter(
+                      (x) => x.include_mobile
+                    )"
                     :key="blok._uid"
                     class="mb-12"
                   >
@@ -175,7 +198,9 @@
                         class="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full bg-gradient-cyan transition ease-in-out duration-500"
                       >
                         <div class="py-2 px-5 bg-white rounded-lg">
-                          <p class="relative z-10 text-center">Schedule Free Consult</p>
+                          <p class="relative z-10 text-center">
+                            Schedule Free Consult
+                          </p>
                         </div>
                       </div>
                     </a>

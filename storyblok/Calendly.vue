@@ -4,7 +4,10 @@
 
   onMounted(() => {
     const recaptchaScript = document.createElement('script');
-    recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+    recaptchaScript.setAttribute(
+      'src',
+      'https://assets.calendly.com/assets/external/widget.js'
+    );
     document.head.appendChild(recaptchaScript);
   });
 </script>

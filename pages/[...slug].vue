@@ -1,7 +1,13 @@
 <template>
   <div>
-    <StoryblokComponent v-if="story" :blok="story?.value?.content" />
-    <div v-if="preview" class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono">
+    <StoryblokComponent
+      v-if="story"
+      :blok="story?.value?.content"
+    />
+    <div
+      v-if="preview"
+      class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono"
+    >
       <ul>
         <li>Title: {{ title }}</li>
         <li>Description: {{ description }}</li>
@@ -18,7 +24,9 @@
 <script setup lang="js">
   const toPascalCase = (str) =>
     str
-      .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+      .match(
+        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
+      )
       .map((x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
       .join('');
 
@@ -34,7 +42,9 @@
 
   const story = ref();
   const route = useRoute();
-  const version = computed(() => (route?.query?._storyblok ? 'draft' : 'published'));
+  const version = computed(() =>
+    route?.query?._storyblok ? 'draft' : 'published'
+  );
   const slug = computed(() =>
     route?.query?._storyblok
       ? route?.query?._storyblok
@@ -50,7 +60,10 @@
   );
 
   const description = computed(
-    () => unref(story.value)?.content?.body?.filter((c) => c.component === 'meta')[0]?.description
+    () =>
+      unref(story.value)?.content?.body?.filter(
+        (c) => c.component === 'meta'
+      )[0]?.description
   );
 
   useHead({

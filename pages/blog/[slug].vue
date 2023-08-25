@@ -5,7 +5,10 @@
     :author="author.value?.content"
     :categories="categories.value"
   />
-  <div v-if="preview" class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono">
+  <div
+    v-if="preview"
+    class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono"
+  >
     <ul>
       <li>Title: {{ title }}</li>
       <li>Description: {{ description }}</li>
@@ -19,16 +22,6 @@
 </template>
 
 <script setup lang="js">
-  const toPascalCase = (str) =>
-    str
-      .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-      .map((x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
-      .join('');
-
-  definePageMeta({
-    layout: 'default',
-  });
-
   const route = useRoute();
 
   const slug = computed(() =>
@@ -40,15 +33,15 @@
   );
 
   const preview = computed(() => !!route?.query._storyblok);
-
-  const version = computed(() => (route?.query?._storyblok ? 'draft' : 'published'));
-
+  const version = computed(() =>
+    route?.query?._storyblok ? 'draft' : 'published'
+  );
   const blog = reactive({});
   const author = reactive({});
   const categories = reactive({});
-
-  const title = computed(() => (blog.value?.name ? 'Tres Ríos - ' + blog.value.name : 'Tres Ríos'));
-
+  const title = computed(() =>
+    blog.value?.name ? 'Tres Ríos - ' + blog.value.name : 'Tres Ríos'
+  );
   const description = computed(() => blog.value?.content?.teaser);
 
   useHead({

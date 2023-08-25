@@ -14,7 +14,10 @@
         {{ blok.lead }}
       </p>
     </div>
-    <div class="container mx-auto grid gap-12 my-12 place-items-center" :class="classColumns">
+    <div
+      class="container mx-auto grid gap-12 my-12 place-items-center"
+      :class="classColumns"
+    >
       <Teaser
         v-for="p in blok?.posts"
         :key="p.id"

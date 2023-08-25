@@ -4,7 +4,10 @@
   });
 </script>
 <template>
-  <div v-editable="blok" class="hero relative z-20 overflow-hidden pt-12 pb-28">
+  <div
+    v-editable="blok"
+    class="hero relative z-20 overflow-hidden pt-12 pb-28"
+  >
     <div class="flex flex-wrap xl:items-center -m-8">
       <div class="w-full md:w-1/2 xl:w-auto p-8 xl:p-12 relative">
         <img
