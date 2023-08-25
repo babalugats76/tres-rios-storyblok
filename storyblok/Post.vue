@@ -35,7 +35,7 @@
           }"
           class="inline-block py-1 px-3 mb-4 mr-2 font-semibold rounded-full"
         >
-          #{{ c.name }}
+          #{{ c.name.toLowerCase() }}
         </span>
       </template>
       <div class="blog__headline mb-10" v-html="richHeadline"></div>
