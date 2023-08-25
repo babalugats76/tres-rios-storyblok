@@ -29,9 +29,13 @@
     <div class="md:max-w-2xl mx-auto">
       <template v-for="c in categories" :key="c.id">
         <span
-          class="inline-block py-1 px-3 mb-4 mr-2 font-semibold rounded-full bg-eggplant-50 text-eggplant-500"
+          :style="{
+            backgroundColor: c?.content?.background?.color,
+            color: c?.content?.foreground?.color,
+          }"
+          class="inline-block py-1 px-3 mb-4 mr-2 font-semibold rounded-full"
         >
-          {{ c.name }}
+          #{{ c.name }}
         </span>
       </template>
       <div class="blog__headline mb-10" v-html="richHeadline"></div>
@@ -62,9 +66,9 @@
   .blog__text {
     p {
       /* prettier-ignore */
-      @apply md:text-lg;
+      @apply md: text-lg;
       @apply mb-4;
-      @apply md:mb-8;
+      @apply md: mb-8;
     }
   }
 
@@ -83,13 +87,13 @@
     }
 
     h1 {
-      @apply md:text-7xl;
+      @apply md: text-7xl;
       @apply text-5xl;
       @apply leading-tight;
     }
 
     h2 {
-      @apply md:text-6xl;
+      @apply md: text-6xl;
       @apply text-4xl;
       @apply leading-tight;
     }
