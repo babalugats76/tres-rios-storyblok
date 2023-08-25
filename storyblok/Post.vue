@@ -82,6 +82,9 @@
 
 <style lang="scss">
   .post {
+    * {
+      @apply select-none;
+    }
     blockquote {
       @apply block;
       @apply font-serif;
