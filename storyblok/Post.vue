@@ -30,14 +30,18 @@ const blogDate = computed(() =>
       </template>
       <div class="blog__headline mb-10" v-html="richHeadline"></div>
       <div v-if="author">
-        <p class="text-md font-sans font-thin tracking-tight text-gray-500 mb-8">
+        <p class="text-md font-sans font-normal tracking-tight text-gray-500 mb-8">
           {{ author.display_name }}&nbsp;&nbsp;&middot;&nbsp;&nbsp;{{ blogDate }}
         </p>
+      </div>
+      <div class="mb-10" v-if="blok.teaser">
+        <blockquote class="font-sans font-normal text-lg text-gray-600 px-6 py-8 border-l-8">{{ blok.teaser }}
+        </blockquote>
       </div>
       <div v-if="blok?.image" class="h-64 mb-10">
         <img :src="blok.image.filename" :title="blok.image.title" class="w-full h-full object-cover rounded-lg" alt="" />
       </div>
-      <div class="blog__text md:max-w-3xl mx-auto" v-html="richText"></div>
+      <div class="blog__text" v-html="richText"></div>
     </div>
   </div>
 </template>
