@@ -1,5 +1,4 @@
 <template>
-  <div>
     <StoryblokComponent v-if="blog" :blok="blog.value?.content" :author="author.value?.content"
       :categories="categories.value" />
     <div v-if="preview" class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono">
@@ -13,7 +12,6 @@
       </ul>
       <pre>{{ blog }}</pre>
     </div>
-  </div>
 </template>
 
 <script setup lang="js">
