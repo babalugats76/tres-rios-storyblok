@@ -22,7 +22,7 @@ const blogDate = computed(() =>
 
 <template>
   <div v-editable="blok" :class="pageClasses">
-    <div class="md:max-w-2xl">
+    <div class="md:max-w-2xl mx-auto">
       <div class="blog__headline mb-10" v-html="richHeadline"></div>
       <div v-if="author">
         <p class="text-md font-sans font-thin tracking-tight text-gray-500 mb-8">
