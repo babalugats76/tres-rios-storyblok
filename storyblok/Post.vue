@@ -65,10 +65,9 @@
 <style lang="scss">
   .blog__text {
     p {
-      /* prettier-ignore */
-      @apply md: text-lg;
+      @apply md:text-lg;
       @apply mb-4;
-      @apply md: mb-8;
+      @apply md:mb-8;
     }
   }
 
@@ -87,13 +86,13 @@
     }
 
     h1 {
-      @apply md: text-7xl;
+      @apply md:text-7xl;
       @apply text-5xl;
       @apply leading-tight;
     }
 
     h2 {
-      @apply md: text-6xl;
+      @apply md:text-6xl;
       @apply text-4xl;
       @apply leading-tight;
     }
