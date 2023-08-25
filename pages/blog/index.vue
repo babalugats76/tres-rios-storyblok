@@ -6,8 +6,9 @@
       All the posts!
     </h3>
     <div class="grid md:grid-cols-3 gap-12 my-12 place-items-center">
-      <Teaser v-for="p in posts?.value" :key="p.id" :component="p.component" :image="p.content.image"
-        :title="p.content.headline" :teaser="p.content.teaser" :url="`/${p.full_slug}`" />
+      <Teaser v-for="p in posts?.value" :key="p.id" :component="p.component" :image="p.content.image" :title="renderRichText(p.content.headline, {
+        schema: {}
+      })" :teaser="p.content.teaser" :url="`/${p.full_slug}`" />
     </div>
     <div v-if="preview" class="mx-auto p-4 text-xs bg-blue-50 border-solid font-mono">
       <ul>
@@ -34,7 +35,7 @@ const toPascalCase = str =>
 const route = useRoute()
 
 const slug = computed(() =>
-  route?.query?._storyblok ? route?.query?._storyblok: 'blog/'
+  route?.query?._storyblok ? route?.query?._storyblok : 'blog/'
 )
 const preview = computed(() => !!route?.query._storyblok)
 const version = computed(() => route?.query?._storyblok ? 'draft' : 'published')

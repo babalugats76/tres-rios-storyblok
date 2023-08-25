@@ -49,7 +49,9 @@ const blogDate = computed(() =>
 <style lang="scss">
 .blog__text {
   p {
+    @apply md:text-lg;
     @apply mb-4;
+    @apply md:mb-8;
   }
 }
 
