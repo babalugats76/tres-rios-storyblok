@@ -13,6 +13,7 @@
     'mx-auto': true,
     'px-4': true,
     'py-20': true,
+    post: true,
   });
 
   const blogDate = computed(() =>
@@ -45,7 +46,7 @@
         </span>
       </template>
       <div
-        class="blog__headline mb-10"
+        class="post__headline mb-2"
         v-html="richHeadline"
       ></div>
       <div v-if="author">
@@ -59,7 +60,7 @@
       </div>
       <div
         v-if="blok?.image"
-        class="h-64 mb-10"
+        class="h-64 mb-8"
       >
         <img
           :src="blok.image.filename"
@@ -68,18 +69,11 @@
           alt=""
         />
       </div>
+      <blockquote v-if="blok.teaser">
+        {{ blok.teaser }}
+      </blockquote>
       <div
-        v-if="blok.teaser"
-        class="mb-10"
-      >
-        <blockquote
-          class="font-serif italic text-xl leading-snug text-gray-600 md:px-12 py-2"
-        >
-          {{ blok.teaser }}
-        </blockquote>
-      </div>
-      <div
-        class="blog__text"
+        class="post__text"
         v-html="richText"
       ></div>
     </div>
@@ -87,38 +81,85 @@
 </template>
 
 <style lang="scss">
-  .blog__text {
-    p {
-      @apply md:text-lg;
-      @apply mb-4;
-      @apply md:mb-8;
+  .post {
+    blockquote {
+      @apply block;
+      @apply font-serif;
+      @apply italic;
+      @apply text-xl;
+      @apply leading-snug;
+      @apply text-gray-600;
+      @apply md:px-12;
+      @apply mb-8;
     }
-  }
+    .post__text {
+      @apply text-base;
+      p {
+        @apply md:text-lg;
+        @apply mb-4;
+        @apply md:mb-8;
+      }
 
-  .blog__headline {
-    * {
-      > i {
-        @apply font-serif;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply text-gray-900;
+      }
+
+      h1 {
+        @apply text-5xl;
+        @apply leading-loose;
+      }
+      h2 {
+        @apply text-4xl;
+        @apply leading-loose;
+      }
+      h3 {
+        @apply text-3xl;
+        @apply leading-loose;
+      }
+      h4 {
+        @apply text-2xl;
+        @apply leading-loose;
+      }
+      h5 {
+        @apply text-xl;
+        @apply leading-loose;
+      }
+      h6 {
+        @apply text-lg;
+        @apply leading-loose;
       }
     }
 
-    h1,
-    h2 {
-      @apply font-heading;
-      @apply font-bold;
-      @apply text-gray-900;
-    }
+    .post__headline {
+      * {
+        > i {
+          @apply font-serif;
+        }
+      }
 
-    h1 {
-      @apply md:text-7xl;
-      @apply text-5xl;
-      @apply leading-tight;
-    }
+      h1,
+      h2 {
+        @apply font-heading;
+        @apply font-bold;
+        @apply text-gray-900;
+      }
 
-    h2 {
-      @apply md:text-6xl;
-      @apply text-4xl;
-      @apply leading-tight;
+      h1 {
+        @apply md:text-7xl;
+        @apply text-5xl;
+        @apply leading-tight;
+      }
+
+      h2 {
+        @apply md:text-6xl;
+        @apply text-4xl;
+        @apply leading-tight;
+      }
     }
   }
 </style>
