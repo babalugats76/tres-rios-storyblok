@@ -43,19 +43,11 @@
 </template>
 
 <script setup lang="js">
-  const toPascalCase = (str) =>
-    str
-      .match(
-        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
-      )
-      .map((x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
-      .join('');
-
   const route = useRoute();
-
   const slug = computed(() =>
     route?.query?._storyblok ? route?.query?._storyblok : 'blog/'
   );
+
   const preview = computed(() => !!route?.query._storyblok);
   const version = computed(() =>
     route?.query?._storyblok ? 'draft' : 'published'
