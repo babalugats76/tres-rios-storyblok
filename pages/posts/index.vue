@@ -2,7 +2,7 @@
   <div class="container p-4">
     <span
       class="inline-block py-px px-2 mb-4 text-xs leading-5 text-green-500 bg-green-100 font-medium uppercase rounded-full shadow-sm"
-      >Blog</span
+      >Posts</span
     >
     <h3
       class="mb-4 text-4xl md:text-5xl leading-tight text-darkCoolGray-900 font-bold tracking-tighter"
@@ -45,7 +45,7 @@
 <script setup lang="js">
   const route = useRoute();
   const slug = computed(() =>
-    route?.query?._storyblok ? route?.query?._storyblok : 'blog/'
+    route?.query?._storyblok ? route?.query?._storyblok : 'posts/'
   );
 
   const preview = computed(() => !!route?.query._storyblok);
@@ -78,9 +78,9 @@
 
   const { data } = await useStoryblokApi().get('cdn/stories/', {
     version: version.value,
-    starts_with: 'blog',
+    starts_with: 'posts',
     sort_by: 'content.date:desc',
-    excluding_slugs: 'blog/',
+    excluding_slugs: 'posts/',
   });
 
   posts.value = toRef(data.stories);

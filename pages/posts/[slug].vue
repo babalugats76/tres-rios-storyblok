@@ -1,7 +1,7 @@
 <template>
   <StoryblokComponent
-    v-if="blog"
-    :blok="blog.value?.content"
+    v-if="post.value?.content"
+    :blok="post?.value?.content"
     :author="author.value?.content"
     :categories="categories.value"
   />
@@ -17,7 +17,7 @@
       <li>Params: {{ route?.params }}</li>
       <li>Query: {{ route?.query }}</li>
     </ul>
-    <pre>{{ blog }}</pre>
+    <pre>{{ post }}</pre>
   </div>
 </template>
 
@@ -28,7 +28,7 @@
     route?.query?._storyblok
       ? route?.query?._storyblok
       : route?.params?.slug && route?.params?.slug.length > 0
-      ? `blog/${route?.params?.slug}`
+      ? `posts/${route?.params?.slug}`
       : undefined
   );
 
@@ -36,32 +36,32 @@
   const version = computed(() =>
     route?.query?._storyblok ? 'draft' : 'published'
   );
-  const blog = reactive({});
+  const post = reactive({});
   const author = reactive({});
   const categories = reactive({});
   const title = computed(() =>
-    blog.value?.name ? 'Tres Ríos - ' + blog.value.name : 'Tres Ríos'
+    post.value?.name ? 'Tres Ríos - ' + post.value.name : 'Tres Ríos'
   );
-  const description = computed(() => blog.value?.content?.teaser);
+  const description = computed(() => post.value?.content?.teaser);
 
   useHead({
     title,
     meta: [{ name: 'description', content: description }],
   });
 
-  blog.value = await useAsyncStoryblok(slug.value, {
+  post.value = await useAsyncStoryblok(slug.value, {
     version: version.value,
     resolve_links: 'url',
   });
 
-  author.value = await useAsyncStoryblok(unref(blog.value)?.content?.author, {
+  author.value = await useAsyncStoryblok(unref(post.value)?.content?.author, {
     version: version.value,
     find_by: 'uuid',
   });
 
   const { data } = await useStoryblokApi().get('cdn/stories/', {
     version: version.value,
-    by_uuids: unref(blog.value)?.content?.categories.join(','),
+    by_uuids: unref(post.value)?.content?.categories.join(','),
   });
 
   categories.value = toRef(data.stories);
