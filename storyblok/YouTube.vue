@@ -1,13 +1,6 @@
 <script setup lang="js">
   const props = defineProps({ blok: Object });
   const video = computed(() => props?.blok?.id);
-
-  // const pageClasses = reactive({
-  //   container: true,
-  //   'overflow-hidden': true,
-  //   'mx-auto': true,
-  //   'px-4': padding,
-  // });
 </script>
 
 <template>
@@ -23,7 +16,6 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen=""
     >
-      <StoryblokComponent :blok="b" />
     </iframe>
   </div>
 </template>

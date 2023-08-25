@@ -20,10 +20,10 @@
 
 <style lang="css">
   .rich > p,
-  h1,
-  h2,
-  img,
-  blockquote {
+  .rich > h1,
+  .rich > h2,
+  .rich > img,
+  .rich > blockquote {
     padding: 1rem 0.25rem;
   }
 

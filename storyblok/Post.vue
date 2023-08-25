@@ -1,11 +1,35 @@
 <script setup lang="js">
+  import { RichTextSchema } from '@storyblok/js';
+  import cloneDeep from 'clone-deep';
+  const mySchema = cloneDeep(RichTextSchema);
+
   const props = defineProps({
     blok: Object,
     author: Object,
     categories: Array,
   });
-  const richText = computed(() => renderRichText(props.blok.text));
+  // const richText = computed(() => renderRichText(props.blok.text));
   const richHeadline = computed(() => renderRichText(props.blok.headline));
+
+  const richText = computed(() =>
+    renderRichText(props.blok.text, {
+      schema: mySchema,
+      resolver: (component, blok) => {
+        switch (component) {
+          case 'you-tube':
+            return `<div class="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden mb-4 md:mb-8" style="padding-top: 56.25%">
+                      <iframe class="embed-responsive-item absolute bottom-0 left-0 right-0 top-0 h-full w-full" src="https://www.youtube.com/embed/${blok.id}"
+                              frameborder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowfullscreen="">
+                      </iframe>
+                    </div>`;
+          default:
+            return `Component ${component} not found`;
+        }
+      },
+    })
+  );
 
   const pageClasses = reactive({
     container: true,
@@ -85,6 +109,7 @@
     * {
       @apply select-none;
     }
+
     blockquote {
       @apply block;
       @apply font-serif;
@@ -95,8 +120,10 @@
       @apply md:px-12;
       @apply mb-8;
     }
+
     .post__text {
       @apply text-base;
+
       p {
         @apply md:text-lg;
         @apply mb-4;
@@ -116,22 +143,27 @@
         @apply text-5xl;
         @apply leading-loose;
       }
+
       h2 {
         @apply text-4xl;
         @apply leading-loose;
       }
+
       h3 {
         @apply text-3xl;
         @apply leading-loose;
       }
+
       h4 {
         @apply text-2xl;
         @apply leading-loose;
       }
+
       h5 {
         @apply text-xl;
         @apply leading-loose;
       }
+
       h6 {
         @apply text-lg;
         @apply leading-loose;
