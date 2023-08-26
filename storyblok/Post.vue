@@ -227,12 +227,12 @@
       }
 
       img {
+        @apply md:transform;
+        @apply md:hover:scale-105;
+        @apply md:transition;
+        @apply md:ease-in-out;
+        @apply md:duration-1000;
         @apply mb-8;
-        @apply transform;
-        @apply hover:scale-105;
-        @apply transition;
-        @apply ease-in-out;
-        @apply duration-1000;
         @apply rounded-lg;
       }
     }
