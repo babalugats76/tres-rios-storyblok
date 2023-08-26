@@ -71,7 +71,7 @@
             backgroundColor: c?.content?.background?.color,
             color: c?.content?.foreground?.color,
           }"
-          class="post__category inline-block text-xs md:text-sm py-1 px-3 mb-4 mr-2 font-semibold rounded-full"
+          class="post__category inline-block text-xs md:text-xs py-1 px-3 mb-4 mr-2 font-heading font-base rounded-full"
         >
           #{{ c.name.toLowerCase() }}
         </span>
@@ -145,9 +145,9 @@
       h1,
       h2 {
         @apply font-heading;
-        @apply font-bold;
+        @apply font-extrabold;
         @apply text-gray-900;
-        @apply mb-6;
+        @apply mb-4;
         @apply leading-snug;
         @apply tracking-tighter;
       }
