@@ -149,6 +149,7 @@
         @apply text-gray-900;
         @apply mb-6;
         @apply leading-snug;
+        @apply tracking-tighter;
       }
 
       h1 {
@@ -188,7 +189,7 @@
         @apply mb-4;
         @apply font-heading;
         @apply font-semibold;
-        @apply tracking-tight;
+        @apply tracking-tighter;
         @apply leading-snug;
         @apply text-gray-900;
       }
