@@ -8,7 +8,7 @@
     author: Object,
     categories: Array,
   });
-  // const richText = computed(() => renderRichText(props.blok.text));
+
   const richHeadline = computed(() => renderRichText(props.blok.headline));
 
   const richText = computed(() =>
@@ -17,7 +17,7 @@
       resolver: (component, blok) => {
         switch (component) {
           case 'you-tube':
-            return `<div class="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden mb-4 md:mb-8" style="padding-top: 56.25%">
+            return `<div class="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden mb-8 md:mb-10" style="padding-top: 56.25%">
                       <iframe class="embed-responsive-item absolute bottom-0 left-0 right-0 top-0 h-full w-full" src="https://www.youtube.com/embed/${blok.id}"
                               frameborder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -37,7 +37,18 @@
     'mx-auto': true,
     'px-4': true,
     'py-20': true,
+  });
+
+  const postClasses = reactive({
     post: true,
+    'mx-auto': true,
+    'md:max-w-2xl': props?.blok?.type === 'blog',
+  });
+
+  const richClasses = reactive({
+    post__rich: true,
+    'md:columns-2': props?.blok?.type === 'article',
+    'gap-x-20': props?.blok?.type === 'article',
   });
 
   const blogDate = computed(() =>
@@ -54,7 +65,7 @@
     v-editable="blok"
     :class="pageClasses"
   >
-    <div class="md:max-w-2xl mx-auto">
+    <section :class="postClasses">
       <template
         v-for="c in categories"
         :key="c.id"
@@ -64,27 +75,30 @@
             backgroundColor: c?.content?.background?.color,
             color: c?.content?.foreground?.color,
           }"
-          class="inline-block py-1 px-3 mb-4 mr-2 font-semibold rounded-full"
+          class="inline-block text-xs md:text-sm py-1 px-3 mb-4 mr-2 font-semibold rounded-full"
         >
           #{{ c.name.toLowerCase() }}
         </span>
       </template>
       <div
-        class="post__headline mb-2"
+        class="post__headline"
         v-html="richHeadline"
       ></div>
-      <div v-if="author">
+      <div
+        v-if="author"
+        class="mb-12"
+      >
         <p
-          class="text-md font-sans font-normal tracking-tight text-gray-500 mb-8"
+          class="text-sm md:text-base font-sans font-normal tracking-tight text-gray-500"
         >
-          {{ author.display_name }}&nbsp;&nbsp;&middot;&nbsp;&nbsp;{{
-            blogDate
-          }}
+          <span class="mr-2">{{ author.display_name }}</span>
+          <span class="mr-2">&middot;</span>
+          <span>{{ blogDate }}</span>
         </p>
       </div>
       <div
-        v-if="blok?.image"
-        class="h-64 mb-8"
+        v-if="blok?.image && blok.type === 'blog'"
+        class="h-64 mt-4 mb-8"
       >
         <img
           :src="blok.image.filename"
@@ -93,14 +107,14 @@
           alt=""
         />
       </div>
-      <blockquote v-if="blok.teaser">
+      <blockquote v-if="blok?.teaser && blok.type === 'blog'">
         {{ blok.teaser }}
       </blockquote>
       <div
-        class="post__text"
+        :class="richClasses"
         v-html="richText"
       ></div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -114,60 +128,12 @@
       @apply block;
       @apply font-serif;
       @apply italic;
-      @apply text-xl;
+      @apply text-lg;
+      @apply md:text-xl;
       @apply leading-snug;
       @apply text-gray-600;
       @apply md:px-12;
-      @apply mb-8;
-    }
-
-    .post__text {
-      @apply text-base;
-
-      p {
-        @apply md:text-lg;
-        @apply mb-4;
-        @apply md:mb-8;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        @apply text-gray-900;
-      }
-
-      h1 {
-        @apply text-5xl;
-        @apply leading-loose;
-      }
-
-      h2 {
-        @apply text-4xl;
-        @apply leading-loose;
-      }
-
-      h3 {
-        @apply text-3xl;
-        @apply leading-loose;
-      }
-
-      h4 {
-        @apply text-2xl;
-        @apply leading-loose;
-      }
-
-      h5 {
-        @apply text-xl;
-        @apply leading-loose;
-      }
-
-      h6 {
-        @apply text-lg;
-        @apply leading-loose;
-      }
+      @apply my-8;
     }
 
     .post__headline {
@@ -182,18 +148,85 @@
         @apply font-heading;
         @apply font-bold;
         @apply text-gray-900;
+        @apply mb-6;
       }
 
       h1 {
-        @apply md:text-7xl;
         @apply text-5xl;
-        @apply leading-tight;
+        @apply md:text-6xl;
+        @apply leading-none;
       }
 
       h2 {
-        @apply md:text-6xl;
+        @apply text-3xl;
+        @apply md:text-4xl;
+        @apply leading-none;
+      }
+    }
+
+    .post__rich {
+      @apply text-base;
+
+      > p {
+        @apply md:text-lg;
+        @apply mb-4;
+        @apply md:mb-8;
+      }
+
+      > hr {
+        @apply my-8;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply mb-4;
+        @apply font-heading;
+        @apply font-semibold;
+        @apply tracking-tight;
+        @apply leading-snug;
+        @apply text-gray-900;
+      }
+
+      h1 > i,
+      h2 > i,
+      h3 > i,
+      h4 > i,
+      h5 > i,
+      h6 > i {
+        @apply font-serif;
+      }
+
+      h1 {
+        @apply text-5xl;
+      }
+
+      h2 {
         @apply text-4xl;
-        @apply leading-tight;
+      }
+
+      h3 {
+        @apply text-3xl;
+      }
+
+      h4 {
+        @apply text-2xl;
+      }
+
+      h5 {
+        @apply text-xl;
+      }
+
+      h6 {
+        @apply text-lg;
+      }
+
+      img {
+        @apply mb-8;
+        @apply rounded-lg;
       }
     }
   }
