@@ -24,6 +24,9 @@ module.exports = {
         'midnight-green': '#095F7A',
         'tea-green': '#D2E59E',
       },
+      scale: {
+        103: '1.03',
+      },
     },
     screens: {
       xs: '480px',

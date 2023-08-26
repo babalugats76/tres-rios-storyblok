@@ -228,10 +228,10 @@
 
       img {
         @apply md:transform;
-        @apply md:hover:scale-105;
+        @apply md:hover:scale-103;
         @apply md:transition;
         @apply md:ease-in-out;
-        @apply md:duration-1000;
+        @apply md:duration-500;
         @apply mb-8;
         @apply rounded-lg;
       }
