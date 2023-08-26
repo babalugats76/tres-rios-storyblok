@@ -1,4 +1,4 @@
 ---
-title: Tres Ríos Resources
+title: Free Resources
 ---
 All the resources

@@ -50,11 +50,12 @@
             >
               <NuxtLink
                 :to="
-                  blok?.link?.story?.url
+                  blok?.link?.url ||
+                  (blok?.link?.story?.url
                     ? blok?.link?.story?.url.startsWith('/')
                       ? blok?.link?.story?.url
                       : '/' + blok?.link?.story?.url
-                    : '/'
+                    : '/')
                 "
                 class="font-heading font-medium text-base text-gray-900 hover:text-gray-700"
               >

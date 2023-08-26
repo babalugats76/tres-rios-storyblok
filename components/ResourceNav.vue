@@ -40,16 +40,14 @@
       @apply text-gray-700;
       a {
         @apply font-medium;
+        @apply text-sm;
       }
     }
     ul {
       @apply ml-4;
       @apply mb-4;
       @apply text-gray-700;
-      list-style-type: disc;
-      ::marker {
-        @apply text-green-300;
-      }
+      list-style-type: none;
       li {
         @apply m-1;
       }
