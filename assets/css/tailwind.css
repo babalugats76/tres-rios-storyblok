@@ -6,7 +6,7 @@ body {
   @apply antialiased bg-gray-50 text-body font-body;
 }
 
-a {
+* {
   @apply select-none;
 }
 
