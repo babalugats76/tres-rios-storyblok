@@ -1,10 +1,12 @@
 <template>
-  <StoryblokComponent
-    v-if="post.value?.content"
-    :blok="post?.value?.content"
-    :author="author.value?.content"
-    :categories="categories.value"
-  />
+  <client-only>
+    <StoryblokComponent
+      v-if="post.value?.content"
+      :blok="post?.value?.content"
+      :author="author.value?.content"
+      :categories="categories.value"
+    />
+  </client-only>
   <div
     v-if="preview"
     class="container mx-auto p-4 text-xs bg-blue-50 border-solid font-mono"
