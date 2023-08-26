@@ -43,6 +43,7 @@
     post: true,
     'mx-auto': true,
     'md:max-w-2xl': props?.blok?.type === 'blog',
+    'md:max-w-4xl': props?.blok?.type === 'article',
   });
 
   const richClasses = reactive({
@@ -127,11 +128,11 @@
     blockquote {
       @apply block;
       @apply font-serif;
-      @apply italic;
+      @apply not-italic;
       @apply text-lg;
       @apply md:text-xl;
-      @apply leading-snug;
-      @apply text-gray-600;
+      @apply leading-tight;
+      @apply text-gray-500;
       @apply md:px-12;
       @apply my-8;
     }
@@ -168,9 +169,13 @@
       @apply text-base;
 
       > p {
-        @apply md:text-lg;
         @apply mb-4;
         @apply md:mb-8;
+        @apply text-base;
+        @apply md:text-lg;
+        @apply max-w-prose;
+        @apply text-body;
+        @apply leading-normal;
       }
 
       > hr {
