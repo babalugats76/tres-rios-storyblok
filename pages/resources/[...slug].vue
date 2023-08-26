@@ -1,6 +1,6 @@
 <template>
-  <section class="page page__course mx-auto px-4 mt-20">
-    <!-- <LibraryNav :navigation-tree="navigation" /> -->
+  <section class="page page__resource container mx-auto px-4 mt-20">
+    <ResourceNav :navigation-tree="navigation" />
     <ContentRenderer :value="data">
       <ContentRendererMarkdown :value="data" />
     </ContentRenderer>
@@ -9,29 +9,21 @@
 
 <script setup lang="js">
   const route = useRoute();
-  // const { path } = route;
-  const { course, slug } = route.params;
-  const customPath = '/' + course + '/' + (slug ? slug.join('/') : '');
-  const { data } = await useAsyncData(`content-${customPath}`, () =>
-    queryContent(customPath).findOne()
+  // const { resource, slug } = route.params;
+  // const path = `/resources/${resource}/${slug ? slug.join('/') : ''}`;
+  const { path } = route;
+  const { data } = await useAsyncData(`content-${path}`, () =>
+    queryContent(path).findOne()
   );
   if (data.value == null)
     throw createError({ statusCode: 404, message: 'Page not found' });
-  console.log(data);
-  // const { data: navigation } = await useAsyncData('navigation', () =>
-  //   fetchContentNavigation()
-  // );
+  const { data: navigation } = await useAsyncData('navigation', () =>
+    fetchContentNavigation()
+  );
 </script>
 
 <style lang="scss">
-  .page__course {
-    a {
-      @apply font-medium;
-      @apply text-blue-600;
-      @apply dark:text-blue-500;
-      @apply hover:underline;
-    }
-
+  .page__resource {
     p {
       @apply mb-8;
       @apply text-base;

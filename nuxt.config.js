@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const path = require('path');
+
 export default defineNuxtConfig({
   app: {
     rootId: 'tres-rios',
@@ -17,6 +19,15 @@ export default defineNuxtConfig({
           content: 'Concierge Learning is Here',
         },
       ],
+    },
+  },
+  content: {
+    sources: {
+      resources: {
+        prefix: '/resources',
+        driver: 'fs',
+        base: path.resolve(__dirname, 'resources'),
+      },
     },
   },
   devtools: { enabled: true },
