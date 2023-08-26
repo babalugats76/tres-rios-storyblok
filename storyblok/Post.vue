@@ -43,7 +43,7 @@
     post: true,
     'mx-auto': true,
     'md:max-w-2xl': props?.blok?.type === 'blog',
-    'md:max-w-4xl': props?.blok?.type === 'article',
+    'md:max-w-5xl': props?.blok?.type === 'article',
   });
 
   const richClasses = reactive({
