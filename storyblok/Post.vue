@@ -36,8 +36,8 @@
   const isArticle = computed(() => props?.blok?.type === 'article');
 
   const postClasses = reactive({
-    'md:max-w-2xl': isArticle,
-    'md:max-w-5xl': isArticle,
+    'md:max-w-2xl': isBlog,
+    'md:max-w-6xl': isArticle,
   });
 
   const richClasses = reactive({
@@ -148,18 +148,17 @@
         @apply font-bold;
         @apply text-gray-900;
         @apply mb-6;
+        @apply leading-tight;
       }
 
       h1 {
         @apply text-5xl;
         @apply md:text-6xl;
-        @apply leading-none;
       }
 
       h2 {
         @apply text-3xl;
         @apply md:text-4xl;
-        @apply leading-none;
       }
     }
 
