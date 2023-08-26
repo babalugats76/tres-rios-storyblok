@@ -31,25 +31,18 @@
     })
   );
 
-  const pageClasses = reactive({
-    container: true,
-    'overflow-hidden': true,
-    'mx-auto': true,
-    'px-4': true,
-    'py-20': true,
-  });
+  const isBlog = computed(() => props?.blok?.type === 'blog');
+
+  const isArticle = computed(() => props?.blok?.type === 'article');
 
   const postClasses = reactive({
-    post: true,
-    'mx-auto': true,
-    'md:max-w-2xl': props?.blok?.type === 'blog',
-    'md:max-w-5xl': props?.blok?.type === 'article',
+    'md:max-w-2xl': isArticle,
+    'md:max-w-5xl': isArticle,
   });
 
   const richClasses = reactive({
-    post__rich: true,
-    'md:columns-2': props?.blok?.type === 'article',
-    'gap-x-20': props?.blok?.type === 'article',
+    'md:columns-2': isArticle,
+    'gap-x-20': isArticle,
   });
 
   const blogDate = computed(() =>
@@ -64,30 +57,32 @@
 <template>
   <div
     v-editable="blok"
-    :class="pageClasses"
+    class="page page__post container overflow-hidden mx-auto px-4 py-20"
   >
-    <section :class="postClasses">
-      <template
-        v-for="c in categories"
-        :key="c.id"
-      >
+    <section
+      class="post mx-auto"
+      :class="postClasses"
+    >
+      <div class="post__categories">
         <span
+          v-for="c in categories"
+          :key="c.id"
           :style="{
             backgroundColor: c?.content?.background?.color,
             color: c?.content?.foreground?.color,
           }"
-          class="inline-block text-xs md:text-sm py-1 px-3 mb-4 mr-2 font-semibold rounded-full"
+          class="post__category inline-block text-xs md:text-sm py-1 px-3 mb-4 mr-2 font-semibold rounded-full"
         >
           #{{ c.name.toLowerCase() }}
         </span>
-      </template>
+      </div>
       <div
         class="post__headline"
         v-html="richHeadline"
       ></div>
       <div
         v-if="author"
-        class="mb-12"
+        class="post__author mb-12"
       >
         <p
           class="text-sm md:text-base font-sans font-normal tracking-tight text-gray-500"
@@ -98,20 +93,23 @@
         </p>
       </div>
       <div
-        v-if="blok?.image && blok.type === 'blog'"
-        class="h-64 mt-4 mb-8"
+        v-if="blok?.image && isBlog"
+        class="post__cover h-64 mt-4 mb-8"
       >
         <img
-          :src="blok.image.filename"
-          :title="blok.image.title"
+          :src="blok.image?.filename"
+          :title="blok.image?.title"
           class="w-full h-full object-cover rounded-lg"
-          alt=""
+          :alt="blok.image?.alt"
         />
       </div>
-      <blockquote v-if="blok?.teaser && blok.type === 'blog'">
-        {{ blok.teaser }}
-      </blockquote>
+      <div class="post__teaser">
+        <blockquote v-if="blok?.teaser && isBlog">
+          {{ blok.teaser }}
+        </blockquote>
+      </div>
       <div
+        class="post__rich"
         :class="richClasses"
         v-html="richText"
       ></div>
