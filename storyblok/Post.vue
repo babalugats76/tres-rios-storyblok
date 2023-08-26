@@ -148,7 +148,7 @@
         @apply font-bold;
         @apply text-gray-900;
         @apply mb-6;
-        @apply leading-tight;
+        @apply leading-snug;
       }
 
       h1 {
