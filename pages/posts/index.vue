@@ -9,7 +9,7 @@
     >
       All the posts!
     </h3>
-    <div class="grid md:grid-cols-3 gap-12 my-12 place-items-center">
+    <div class="grid md:grid-cols-3 gap-12 my-12 place-items-start">
       <Teaser
         v-for="p in posts?.value"
         :key="p.id"

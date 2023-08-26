@@ -15,7 +15,7 @@
       </p>
     </div>
     <div
-      class="container mx-auto grid gap-12 my-12 place-items-center"
+      class="container mx-auto grid gap-12 my-12 place-items-start"
       :class="classColumns"
     >
       <Teaser
