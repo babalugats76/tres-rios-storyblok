@@ -148,18 +148,19 @@
         @apply font-extrabold;
         @apply text-gray-900;
         @apply mb-4;
-        @apply leading-snug;
         @apply tracking-tighter;
       }
 
       h1 {
         @apply text-5xl;
         @apply md:text-6xl;
+        @apply leading-none;
       }
 
       h2 {
         @apply text-3xl;
         @apply md:text-4xl;
+        @apply leading-none;
       }
     }
 
@@ -167,8 +168,7 @@
       @apply text-base;
 
       > p {
-        @apply mb-4;
-        @apply md:mb-8;
+        @apply mb-8;
         @apply text-base;
         @apply md:text-lg;
         @apply max-w-prose;
