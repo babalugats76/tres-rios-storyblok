@@ -6,7 +6,7 @@
         >Blog</span
       >
       <h3
-        class="mb-4 text-4xl md:text-5xl leading-tight text-darkCoolGray-900 font-heading font-bold tracking-tighter"
+        class="mb-4 text-4xl md:text-5xl leading-tight text-darkCoolGray-900 font-heading font-extrabold tracking-tighter"
       >
         {{ blok.headline }}
       </h3>
