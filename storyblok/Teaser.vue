@@ -8,7 +8,7 @@
         :alt="image?.alt"
       />
       <h1
-        class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl"
+        class="mx-auto mb-8 text-2xl font-heading font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl"
       >
         {{ title }}
       </h1>
