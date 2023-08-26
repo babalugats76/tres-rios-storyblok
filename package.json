@@ -13,6 +13,7 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "@nuxt/content": "^2.8.0",
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-config": "^12.0.0",
     "@typescript-eslint/parser": "^6.4.1",
