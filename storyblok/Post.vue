@@ -99,7 +99,7 @@
         <img
           :src="blok.image?.filename"
           :title="blok.image?.title"
-          class="w-full h-full object transform hover:scale-105 transition ease-in-out duration-1000 rounded-lg"
+          class="w-full h-full object rounded-lg"
           :alt="blok.image?.alt"
         />
       </div>
