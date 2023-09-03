@@ -35,7 +35,7 @@
     layout: 'default',
     validate: (route) =>
       !!route?.query._storyblok ||
-      /^(\/|home|services|about|consult|pods|tutoring|workshops|courses|travel|parents|k12|homeschool|test)+$/.test(
+      /^(\/|home|about|consult|pods|tutoring|workshops|courses|classes-events|plans|our-community|our-approach|our-story|travel|parents-homeschool|k12|test)+$/.test(
         route.fullPath
       ),
   });
